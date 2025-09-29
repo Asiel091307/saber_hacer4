@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lanzador de Programas</title>
+
+  <!-- Enlace al CSS externo -->
+  <link rel="stylesheet" href="../styles/launcher.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="brand">Launcher</div>
+
+      <!-- Botones -->
+      <button class="btn btn--primary" data-url="../js/calculadora.html">Inicio</button>
+      <button class="btn" data-url="../js/nomina.html">Nómina</button>
+      <button class="btn" data-url="../js/cuadradoText.html">CuadradoText</button>
+      <!-- NUEVO: botón Perfil -->
+      <button class="btn" data-url="../js/perfil.html">Perfil</button>
+      <!-- (si luego quieres más, solo duplica esta línea cambiando el data-url y el texto) -->
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <main class="container">
+    <section class="info">
+      <strong>Cómo funciona:</strong> Haz clic en un botón de la barra para cargar el programa dentro del cuadro de abajo.  
+      Cada programa se abre dentro del visor sin cambiar de página.
+    </section>
+
+    <section class="viewer-wrap">
+      <div id="loading" class="loading">
+        <div class="spinner"></div> Cargando…
+      </div>
+      <!-- El “cuadro” donde verás los programas -->
+      <iframe id="viewer" class="viewer" title="Visor de programas"
+        sandbox="allow-scripts allow-forms allow-same-origin"></iframe>
+    </section>
+  </main>
+
+</body>
+</html>
+  <!-- LÓGICA -->
+  <script>
+    const viewer  = document.getElementById('viewer');
+    const loader  = document.getElementById('loading');
+    const buttons = Array.from(document.querySelectorAll('.nav__inner .btn'));
+
+    function setActive(btn){
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+    }
+
+    function loadView(url, btn){
+      loader.classList.add('show');
+      setActive(btn);
+      viewer.src = url;
+    }
+
+    viewer.addEventListener('load', () => loader.classList.remove('show'));
+    viewer.addEventListener('error', () => {
+      loader.classList.remove('show');
+      alert('No se pudo cargar: ' + viewer.src);
+    });
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const url = btn.getAttribute('data-url');
+        loadView(url, btn);
+      });
+    });
+
+    // Cargar por defecto “Inicio”
+    const defaultBtn = buttons[0];
+    loadView(defaultBtn.getAttribute('data-url'), defaultBtn);
+  </script>

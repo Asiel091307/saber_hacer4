@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/nomina.css">
+
+
+    <title>nomina</title>
+</head>
+<body>
+    <h1>registro de nomina</h1>
+    <form action="">
+        <p>ID Empleado</p>
+        <input type="text" name="id" id="id" placeholder="ingresa tu ID">
+        <p>Nombre</p>
+        <input type="text" name="nombre" id="nombre" placeholder="ingresa tu Nombre">
+        <p>holas trabajadar</p>
+        <input type="text" name="horas" id="horas" placeholder="ingrasa la horas trabajadas">
+        <p>costo por hora</p>
+        <input type="text" name="costo" id="costo" placeholder="ingresa el costo por hora">
+        <p>horas normales</p>
+        <input type="text" value="" id="normales" name="normales" readonly style="background-color: #e0e0e0; color: #555;">
+        <p>horas extras</p>
+        <input type="text" value="" id="extras" name="extras" readonly style="background-color: #e0e0e0; color: #555;">
+        <p>subtotal</p>
+        <input type="text" value="" id="subtotal" name="subtotal" readonly style="background-color: #e0e0e0; color: #555;">
+        <p>ISPT</p>
+        <input type="text" value="" id="ispt" name="ispt" readonly style="background-color: #e0e0e0; color: #555;">
+        <p>total a pagar</p>
+        <input type="text" value="" id="total" name="total" style="background-color: #e0e0e0; color: #555;">
+    </form>
+        <button type="button" onclick="CALCULAR()">calcular</button>
+        <button type="button" onclick="LIMPIAR()">Limpiar</button>
+</body>
+</html>
+
+<script>
+    function CALCULAR() {
+        let id = document.getElementById("id").value;
+        let nombre = document.getElementById("nombre").value;
+        let horas = document.getElementById("horas").value;
+        let costo = document.getElementById("costo").value;
+
+        horas = parseFloat(horas);
+        costo = parseFloat(costo);
+        if (horas > 40){
+            let costonormal= 40 * costo;
+            let horasExtras = horas - 40;
+            let costoExtra = horasExtras * (costo * 2);
+            let subtotal = costonormal + costoExtra;
+            let ispt = subtotal * 0.10;
+            let totalPagar = subtotal - ispt;
+
+            document.getElementById("normales").value = 40;
+            document.getElementById("extras").value = horasExtras;
+            document.getElementById("subtotal").value = subtotal;
+            document.getElementById("ispt").value = ispt;
+            document.getElementById("total").value = totalPagar;
+        } else {
+            let subtotal = horas * costo;
+            let ispt = subtotal * 0.10;
+            let totalPagar = subtotal - ispt;
+            document.getElementById("normales").value = horas;
+            document.getElementById("extras").value = 0;
+            document.getElementById("subtotal").value = subtotal;
+            document.getElementById("ispt").value = ispt;
+            document.getElementById("total").value = totalPagar;
+
+        
+
+        }
+
+    }
+    function LIMPIAR() {
+        document.getElementById("id").value = "";
+        document.getElementById("nombre").value = "";
+        document.getElementById("horas").value = "";
+        document.getElementById("costo").value = "";
+        document.getElementById("normales").value = "";
+        document.getElementById("extras").value = "";
+        document.getElementById("subtotal").value = "";
+        document.getElementById("ispt").value = "";
+        document.getElementById("total").value = "";
+    }
+</script>

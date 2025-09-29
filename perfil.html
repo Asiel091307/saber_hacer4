@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi perfil</title>
+  <link rel="icon" sizes="16x16 32x32 48x48" href="C:\Users\asiel\OneDrive\Desktop\html\app web\image\yo.jpeg" type="image/x-icon">
+  <!-- Enlace a tu hoja de estilos externa -->
+  <link rel="stylesheet" href="../styles/perfil.css">
+
+</head>
+<body>
+  <div class="container">
+    <header class="hero" role="banner">
+      <!-- Tu foto (carpeta: image) -->
+      <img class="avatar-photo" src="../image/yo.jpeg" alt="Foto de Joseph Asiel Garcia Guerrero" loading="lazy">
+      <div>
+        <h1>Mi perfil</h1>
+        <p class="subtitle">Esta página servirá para que conozcan quién soy, qué me gusta, etc.</p>
+      </div>
+    </header>
+
+    <main id="contenido" role="main">
+      <!-- Perfil -->
+      <section aria-labelledby="titulo-perfil">
+        <h2 id="titulo-perfil">Perfil</h2>
+        <div class="grid">
+          <div>
+            <ul class="list" aria-label="Datos personales">
+              <li><strong>Nombre:</strong> Joseph Asiel Garcia Guerrero</li>
+              <li><strong>Edad:</strong> 17 años</li>
+              <li><strong>Correo:</strong> <a href="mailto:josephasielgarciaguerrero@gmawil.com">josephasielgarciaguerrero@gmawil.com</a></li>
+              <li><strong>Escuela:</strong> UTC</li>
+            </ul>
+          </div>
+
+          <figure>
+            <a href="https://utc.edu.mx/" target="_blank" rel="noopener noreferrer">
+              <img src="https://st.mextudia.com/wp-content/uploads/2025/05/UTC-mexico-carreras-y-costos.jpg"
+                   width="600" height="400"
+                   alt="Vista del campus de la Universidad Tecnológica de Cancún" loading="lazy">
+            </a>
+            <figcaption>Escuela de procedencia: <a href="https://utc.edu.mx/" target="_blank" rel="noopener noreferrer">utc.edu.mx</a></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Pasatiempos -->
+      <section aria-labelledby="titulo-pasatiempos">
+        <h2 id="titulo-pasatiempos">Pasatiempos</h2>
+        <ol class="list" aria-label="Lista de pasatiempos">
+          <li>Jugar videojuegos</li>
+          <li>Ver anime</li>
+          <li>Escuchar música</li>
+          <li>Programar</li>
+        </ol>
+      </section>
+
+      <!-- Experiencias -->
+      <section aria-labelledby="titulo-experiencias">
+        <h2 id="titulo-experiencias">Experiencias</h2>
+        <ol class="list" aria-label="Experiencia laboral">
+          <li>Ninguna experiencia laboral</li>
+        </ol>
+      </section>
+
+      <!-- Redes sociales -->
+      <section aria-labelledby="titulo-redes">
+        <h2 id="titulo-redes">Redes sociales</h2>
+        <p>Instagram: <strong>josephasiel_2006</strong></p>
+        <p>Facebook: <strong>Joseph Asiel Garcia Guerrero</strong></p>
+      </section>
+
+      <!-- Feedback -->
+      <section aria-labelledby="titulo-feedback">
+        <h2 id="titulo-feedback">Tu opinión</h2>
+        <form action="#" method="post">
+          <div class="checks" role="group" aria-label="¿Te gustó la página?">
+            <div class="check">
+              <input id="gusto-si" type="checkbox" name="gusto" value="si" checked>
+              <label for="gusto-si">Sí</label>
+            </div>
+            <div class="check">
+              <input id="gusto-no" type="checkbox" name="gusto" value="no">
+              <label for="gusto-no">No</label>
+            </div>
+          </div>
+
+          <label for="consejo">¿Tienes algún consejo para mejorar la página?</label>
+          <input id="consejo" name="consejo" type="text" placeholder="Escribe tu respuesta…" required>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
