@@ -6,7 +6,7 @@
   <title>Lanzador de Programas</title>
 
   <!-- Enlace al CSS externo -->
-  <link rel="stylesheet" href="../styles/launcher.css">
+  <link rel="stylesheet" href="styles/launcher.css">
 </head>
 <body>
 
@@ -16,11 +16,11 @@
       <div class="brand">Launcher</div>
 
       <!-- Botones -->
-      <button class="btn btn--primary" data-url="../js/calculadora.html">Inicio</button>
-      <button class="btn" data-url="../js/nomina.html">Nómina</button>
-      <button class="btn" data-url="../js/cuadradoText.html">CuadradoText</button>
+      <button class="btn btn--primary" data-url="calculadora.html">Inicio</button>
+      <button class="btn" data-url="nomina.html">Nómina</button>
+      <button class="btn" data-url="cuadradoText.html">CuadradoText</button>
       <!-- NUEVO: botón Perfil -->
-      <button class="btn" data-url="../js/perfil.html">Perfil</button>
+      <button class="btn" data-url="perfil.html">Perfil</button>
       <!-- (si luego quieres más, solo duplica esta línea cambiando el data-url y el texto) -->
     </div>
   </nav>
@@ -77,3 +77,4 @@
     const defaultBtn = buttons[0];
     loadView(defaultBtn.getAttribute('data-url'), defaultBtn);
   </script>
+
